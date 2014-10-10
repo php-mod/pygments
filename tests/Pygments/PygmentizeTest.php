@@ -9,6 +9,9 @@ class PygmentizeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("1.6", Pygmentize::version());
     }
 
+    /**
+     * @depends testVersion
+     */
     public function testLexers()
     {
         $this->assertEquals(
@@ -465,6 +468,9 @@ class PygmentizeTest extends \PHPUnit_Framework_TestCase
             Pygmentize::lexers());
     }
 
+    /**
+     * @depends testVersion
+     */
     public function testStyles()
     {
         $this->assertEquals(array (
@@ -489,6 +495,9 @@ class PygmentizeTest extends \PHPUnit_Framework_TestCase
             Pygmentize::styles());
     }
 
+    /**
+     * @depends testVersion
+     */
     public function testGetStyle()
     {
         $this->assertEquals(".hll { background-color: #ffffcc }
@@ -554,6 +563,9 @@ class PygmentizeTest extends \PHPUnit_Framework_TestCase
 .il { color: #FF6600 } /* Literal.Number.Integer.Long */", Pygmentize::getStyle('manni'));
     }
 
+    /**
+     * @depends testVersion
+     */
     public function testFormat()
     {
         $source = '<html><head></head>

@@ -11,7 +11,7 @@ class Pygmentize
 
     const EXIT_SUCCESS = 0;
 
-    private static $bin = '/usr/bin/pygmentize';
+    private static $bin = null;
 
     public static function version()
     {
@@ -81,7 +81,8 @@ class Pygmentize
     private static function exec($options, $pipe = null)
     {
         $cmd = $pipe ? 'echo ' . escapeshellarg($pipe) . ' | ' : '';
-        exec($cmd . self::$bin . ' ' . $options . ' 2>&1', $output, $returnVar);
+        $cmd .= self::getBin() . ' ' . $options . ' 2>&1';
+        exec($cmd, $output, $returnVar);
         $output = implode(PHP_EOL, $output);
         if ($returnVar == self::EXIT_SUCCESS) {
             return $output;
@@ -101,6 +102,23 @@ class Pygmentize
         } else {
             return 'error';
         }
+    }
+
+    private static function getBin()
+    {
+        if(self::$bin == null) {
+            $returnVal = shell_exec("which pygmentize");
+            if(empty($returnVal)) {
+                throw new BinaryNotFoundException("Pygmentize not found.");
+            }
+            self::setBin(trim($returnVal));
+        }
+        return self::$bin;
+    }
+
+    private static function setBin($bin)
+    {
+        self::$bin = $bin;
     }
 }
 
