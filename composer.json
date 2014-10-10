@@ -1,0 +1,25 @@
+{
+    "name": "pygments/pygments",
+    "type": "library",
+    "description": "Syntax highlighter bridge for pygments",
+    "homepage": "https://github.com/php-mod/pygments",
+    "keywords": ["Syntax highlighter", "highlighter", "pygments"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hassan Amouhzi",
+            "email": "hassan@amouhzi.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Pygments": "src/"
+        }
+    }
+}
