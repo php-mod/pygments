@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Syntax highlighter bridge for pygments",
     "homepage": "https://github.com/php-mod/pygments",
-    "keywords": ["Syntax highlighter", "highlighter", "pygments"],
+    "keywords": ["highlight", "highlighter", "pygments"],
     "license": "MIT",
     "authors": [
         {
