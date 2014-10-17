@@ -19,7 +19,3 @@ That's all. Now you can download the plugin via Composer or as independent libra
 $code = file_get_contents("test.js");
 echo Pygmentize::format($code, "js");
 ```
-##Options
-Pygments::render($code, $language, $style, $linenumbers)
-* `$code`: the source code to highlight
-* `$language`: Language type. see section "Languages and filetypes supported" in this doc.
